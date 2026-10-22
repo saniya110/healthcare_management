@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Health Guide | Home</title>
+
+    <!-- Web Fonts -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin">
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- CSS Header and Footer -->
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="assets/plugins/line-icons-pro/styles.css">
+    <link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+	<script src="assets/js/search.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!--=== Header v1 ===-->
+        <div class="header-v1">
+            <!-- Topbar -->
+            <div class="topbar-v1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="list-inline top-v1-contacts">
+                                <li>
+                                    <i class="fa fa-envelope"></i> Email: kalyanchikkam@gmail.com
+                                </li>
+                                <li>
+                                    <i class="fa fa-phone"></i> Contact no: 7901693474
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Topbar -->
+
+            <!-- Navbar -->
+            <div class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html">
+                            <img src="assets/img/logo/unity_white.jpeg" alt="Logo" style=" height:70px;width:70px;padding-bottom:30px;" />
+                        </a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="disease.html">Diseases</a></li>
+                            <li><a href="doctors.html">Doctors</a></li>
+                            <li><a href="gallery.html">Gallery</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="registration.html">Registration</a></li>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="appointment.html">Book Appointment</a></li>
+                            <li>
+                                <form class="navbar-form" role="search" onsubmit="return handleSearch(event)">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search" name="query" id="search-query">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+            <!-- End Navbar -->
+
+            <!-- Slider -->
+            <div id="slide">
+                <div class="slideshow-container">
+                    <div class="mySlides fade">
+                        <img src="assets/img/slider/hea.jpg" alt="Slider1" style="width: 100%; height: auto;">
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="assets/img/slider/2.jpg" alt="Slider2" style="width: 100%; height: auto;">
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="assets/img/slider/new_medHealth.jpg" alt="Slider3" style="width: 100%; height: auto;">
+                    </div>
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <br>
+                <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+            
+
+            <script>
+                var slideIndex = 0;
+                showSlides();
+                var slides, dots;
+
+                function showSlides() {
+                    var i;
+                    slides = document.getElementsByClassName("mySlides");
+                    dots = document.getElementsByClassName("dot");
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";  
+                    }
+                    slideIndex++;
+                    if (slideIndex > slides.length) {slideIndex = 1}    
+                    for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" active", "");
+                    }
+                    slides[slideIndex-1].style.display = "block";  
+                    dots[slideIndex-1].className += " active";
+                    setTimeout(showSlides, 8000); // Change image every 8 seconds
+                }
+
+                function plusSlides(position) {
+                    slideIndex += position;
+                    if (slideIndex > slides.length) {slideIndex = 1}
+                    else if(slideIndex < 1) {slideIndex = slides.length}
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";  
+                    }
+                    for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" active", "");
+                    }
+                    slides[slideIndex-1].style.display = "block";  
+                    dots[slideIndex-1].className += " active";
+                }
+
+                function currentSlide(index) {
+                    if (index > slides.length) {index = 1}
+                    else if(index < 1) {index = slides.length}
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";  
+                    }
+                    for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" active", "");
+                    }
+                    slides[index-1].style.display = "block";  
+                    dots[index-1].className += " active";
+                }
+
+                function handleSearch(event) {
+                    event.preventDefault();
+                    var query = document.getElementById('search-query').value.toLowerCase();
+                    var diseasePages = {
+                        
+                        "covid-19": "disease1.html",
+                        "tuberculosis": "disease2.html",
+                        "cancer": "disease3.html",
+                        "fever": "disease4.html",
+                        "cold": "disease5.html",
+                        "cough": "disease6.html",
+                        "diarhea": "disease7.html",
+                        "diabetes": "disease8.html",
+                        "hypertension": "disease9.html",
+                        "asthama": "disease10.html",
+                        // Add more diseases and corresponding pages here
+                    };
+
+                    var url = diseasePages[query];
+                    if (url) {
+                        window.location.href = url;
+                    } else {
+                        alert('No results found for "' + query + '"');
+                    }
+                }
+            </script>
+            <!-- End of Slider -->
+
+            <!--=== Welcome to Health Care ===-->
+            <div class="container content-md welcomeSection">
+                <div class="row section1">
+                    <div class="col-md-6" style="margin-bottom: 40px;">
+                        <h2 class="title-v2">WELCOME TO <span style="color: #72c02c;">MED AWARE</span></h2>
+                        <p style="text-align: justify; font-size: 14px;">
+                            Welcome to MEDAWARE – Your Trusted Source for Medical Information
+
+                            At MEDAWARE, we are dedicated to providing you with accurate, up-to-date, and comprehensive information about a wide range of diseases and their symptoms. Whether you're seeking to understand a specific health condition or just looking to stay informed about your health, our platform is designed to be your reliable companion on your healthcare journey.
+                        </p>
+                        <p style="text-align: justify; font-size: 14px;">
+                            Explore a World of Medical Knowledge
+
+                            Our easy-to-use search feature allows you to quickly find detailed information on hundreds of diseases. Each entry includes in-depth explanations, covering everything from causes and symptoms to diagnosis and treatment options. We strive to present medical information in a clear, accessible manner, making it easier for you to make informed decisions about your health.
+                        </p>
+                        <a href="about.html" class="btn-u btn-brd btn-brd-hover">Read More</a>
+                    </div>
+                    <div class="col-md-6 overflow-h">
+                        <img style="border-radius: 5px;" class="img-responsive" src="assets/img/bg/wel.jpeg" alt="Welcome Image">
+                    </div>
+                </div>
+            </div>
+            <!--=== End Welcome to Health Care ===-->
+<!--=== Our Specialities ===-->
+<div class="container content-md">
+    <div class="row text-center margin-bottom-30">
+        <div class="col-md-12">
+            <h2 class="title-v2">Our <span style="color: #72c02c;">Specialities</span></h2>
+            <p style="text-align: center; font-size: 16px;">
+                At MedAware, we believe that informed decisions lead to healthier lives. Our platform empowers you to take control of your health by providing easy access to reliable information about a wide range of diseases and their symptoms. Whether you're looking for details about common illnesses or rare conditions, MedAware offers a comprehensive and user-friendly search tool to help you find the answers you need.
+
+With a focus on accuracy and clarity, our database is constantly updated to ensure you have the most current information at your fingertips. At MedAware, we're dedicated to making health knowledge accessible to everyone, so you can stay informed and proactive about your well-being. Explore our resources, understand your symptoms, and discover the best ways to care for your health—all in one place.
+            </p>
+        </div>
+    </div>
+    <div class="row margin-bottom-30">
+        <div class="col-md-4 text-center">
+            <div class="service-block-v4">
+                <div class="icon-wrap">
+                    <i class="fa fa-ambulance"></i>
+                </div>
+                <h3 class="title-v3">Comprehensive Disease Information at Your Fingertips</h3>
+                <p>Discover detailed insights into a wide range of diseases and conditions, all in one place.</p>
+            </div>
+        </div>
+        <div class="col-md-4 text-center">
+            <div class="service-block-v4">
+                <div class="icon-wrap">
+                    <i class="fa fa-stethoscope"></i>
+                </div>
+                <h3 class="title-v3">Your First Step Toward Understanding Health</h3>
+                <p>Input your symptoms and explore possible conditions with our easy-to-use tool.</p>
+            </div>
+        </div>
+        <div class="col-md-4 text-center">
+            <div class="service-block-v4">
+                <div class="icon-wrap">
+                    <i class="fa fa-wheelchair"></i>
+                </div>
+                <h3 class="title-v3">Personalized Health Resources and Educational Content</h3>
+                <p>Stay informed with articles, tips, and the latest medical news tailored to your needs.</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <div class="service-block-v4">
+                <div class="icon-wrap">
+                    <i class="fa fa-eye"></i>
+                </div>
+                <h3 class="title-v3">User-Friendly Interface for Seamless Navigation
+
+                 </h3>
+                <p> Find the information you need quickly   with our intuitive and accessible design.</p>
+            </div>
+        </div>
+        <div class="col-md-4 text-center">
+            <div class="service-block-v4">
+                <div class="icon-wrap">
+                    <i class="fa fa-hospital-o"></i>
+                </div>
+                <h3 class="title-v3">Empowering You with Trusted Medical Knowledge
+
+                   </h3>
+                <p>Access accurate, up-to-date information to make informed health decisions.</p>
+            </div>
+        </div>
+        <div class="col-md-4 text-center">
+            <div class="service-block-v4">
+                <div class="icon-wrap">
+                    <i class="fa fa-heartbeat"></i>
+                </div>
+                <h3 class="title-v3">Connect with MEDAWARE Professionals and Services</h3>
+                <p>
+
+                    Easily locate doctors, hospitals, and book appointment near you for immediate support.
+                    
+                    
+                    
+                    
+                    
+                    </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--=== End Our Specialities ===-->
+
+            <!--=== Latest News ===-->
+            <!-- <div class="container content-md">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="title-v2">Latest <span style="color: #72c02c;">News</span></h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="news-item">
+                            <div class="news-img">
+                                <a href="#"><img src="assets/img/news/1.jpg" alt="News 1" class="img-responsive"></a>
+                            </div>
+                            <div class="news-info">
+                                <h3><a href="#">News Headline 1</a></h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <a href="#" class="btn-u btn-brd btn-brd-hover">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="news-item">
+                            <div class="news-img">
+                                <a href="#"><img src="assets/img/news/2.jpg" alt="News 2" class="img-responsive"></a>
+                            </div>
+                            <div class="news-info">
+                                <h3><a href="#">News Headline 2</a></h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <a href="#" class="btn-u btn-brd btn-brd-hover">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="news-item">
+                            <div class="news-img">
+                                <a href="#"><img src="assets/img/news/3.jpg" alt="News 3" class="img-responsive"></a>
+                            </div>
+                            <div class="news-info">
+                                <h3><a href="#">News Headline 3</a></h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <a href="#" class="btn-u btn-brd btn-brd-hover">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!--=== End Latest News ===-->
+
+            <!--=== Footer ===-->
+            <!--=== Footer ===-->
+<div class="footer-v1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h2 class="title">Contact Us</h2>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-map-marker"></i> Address: Your Address Here</li>
+                    <li><i class="fa fa-phone"></i> Phone: 7901693474</li>
+                    <li><i class="fa fa-envelope"></i> Email: kalyanchikkam@gmail.com</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h2 class="title">Quick Links</h2>
+                <ul class="list-unstyled">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="disease.html">Diseases</a></li>
+                    <li><a href="doctors.html">Doctors</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="registration.html">Registration</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="appointment.html">Book Appointment</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h2 class="title">Follow Us</h2>
+                <ul class="list-inline social-icon">
+                    <li><a href="#" class="fa fa-facebook"></a></li>
+                    <li><a href="#" class="fa fa-twitter"></a></li>
+                    <li><a href="#" class="fa fa-google-plus"></a></li>
+                    <li><a href="#" class="fa fa-linkedin"></a></li>
+                    <li><a href="#" class="fa fa-pinterest"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p>&copy; 2024 Health Care. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--=== End Footer ===-->
+
+        </div>
+    </div>
+
+    <!-- JS Global Compulsory -->
+    <script src="assets/plugins/jquery/jquery.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/plugins/jquery.easing/jquery.easing.min.js"></script>
+
+    <!-- JS Customization -->
+    <script src="assets/js/custom.js"></script>
+
+    <!-- JS Page Level -->
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
